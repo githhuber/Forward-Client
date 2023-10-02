@@ -1,0 +1,12 @@
+# render.yaml
+
+# Use the official Python 3.8 build environment
+buildCommand: python3.8 -m pip install -r requirements.txt
+
+# Specify the command to start your bot
+startCommand: python3.8 your_bot_script.py
+
+# Set the environment variable for the port
+env:
+  - key: PORT
+    value: "8080
