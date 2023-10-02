@@ -12,6 +12,8 @@ from pyrogram.errors import FloodWait
 from configs import Config
 from helpers.kanger import Kanger
 from helpers.forwarder import ForwardMessage
+from flask import Flask
+app = Flask(__name__)
 
 if __name__ == '__main__':
     app.run(port=8000)
