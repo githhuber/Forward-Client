@@ -22,6 +22,10 @@ User = Client(
     session_string=Config.STRING_SESSION
 )
 
+port = int(os.environ.get("PORT", 8080))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
 
 @User.on_message((filters.text | filters.media))
 async def main(client: Client, message: Message):
