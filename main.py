@@ -12,6 +12,7 @@ from pyrogram.errors import FloodWait
 from configs import Config
 from helpers.kanger import Kanger
 from helpers.forwarder import ForwardMessage
+from flask import Flask
 
 RUN = {"isRunning": True}
 User = Client(
@@ -21,11 +22,11 @@ User = Client(
     in_memory=True,
     session_string=Config.STRING_SESSION
 )
-
+app = Flask(__name__)
 port = int(os.environ.get("PORT", 8080))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=PORT)
 
 @User.on_message((filters.text | filters.media))
 async def main(client: Client, message: Message):
