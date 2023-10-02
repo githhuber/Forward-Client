@@ -6,18 +6,17 @@ import os
 import sys
 import time
 import asyncio
-import flask
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 from configs import Config
 from helpers.kanger import Kanger
 from helpers.forwarder import ForwardMessage
-from flask import Flask
-app = Flask(__name__)
 
-if __name__ == '__main__':
-    app.run(port=8080)
+def main():
+    port = int(os.environ.get('PORT', 8080))
+    if __name__ == '__main__':
+        main()
    
 
 RUN = {"isRunning": True}
