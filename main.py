@@ -2,7 +2,7 @@ import os
 import asyncio
 from pyrogram import Client, filters, types
 from configs import Config
-from flask import Flask
+from flask import Flask, request
 
 # Initialize Flask
 app = Flask(__name__)
@@ -85,6 +85,13 @@ PORT = int(os.environ.get("PORT", 8080))
 @app.route('/')
 def hello_world():
     return 'Hello, this is your Pyrogram UserBot!'
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    if request.is_json:
+        data = request.json
+        User.process_media(data)
+    return 'Webhook received!'
 
 if __name__ == "__main__":
     User.start()
