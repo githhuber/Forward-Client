@@ -2,7 +2,12 @@ import os
 import asyncio
 from pyrogram import Client, filters, types
 from configs import Config
+from flask import Flask
 
+# Initialize Flask
+app = Flask(__name__)
+
+# Initialize Pyrogram Client
 RUN = {"isRunning": True}
 User = Client(
     "pyrogram",
@@ -77,5 +82,10 @@ async def main(client: Client, message: types.Message):
 # Use a dynamic port for Flask based on environment variable or default to 8080
 PORT = int(os.environ.get("PORT", 8080))
 
+@app.route('/')
+def hello_world():
+    return 'Hello, this is your Pyrogram UserBot!'
+
 if __name__ == "__main__":
-    User.run()
+    User.start()
+    app.run(host='0.0.0.0', port=PORT)
