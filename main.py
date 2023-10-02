@@ -25,8 +25,7 @@ User = Client(
 app = Flask(__name__)
 PORT = int(os.environ.get("PORT", 8080))
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=PORT)
+
 
 @User.on_message((filters.text | filters.media))
 async def main(client: Client, message: Message):
@@ -129,6 +128,7 @@ async def main(client: Client, message: Message):
         try_forward = await ForwardMessage(client, message)
         if try_forward == 400:
             return
-
+    if __name__ == "__main__":
+        app.run(host="0.0.0.0", port=PORT)
 
 User.run()
