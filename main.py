@@ -89,27 +89,7 @@ async def main(client: Client, message: Message):
                 pass
         return await message.edit("Removed Successfully!")
 
-app = Flask(__name__)
+PORT = os.environ.get("PORT", 8080)
 
-API_ID = os.getenv("API_ID")
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-
-User = Client(
-    "my_bot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN,
-)
-
-@app.route('/')
-def index():
-    return "Bot is running!"
-
-@User.on_message(filters.command("start"))
-def start(client, message):
-    message.reply_text("Hello! This is your bot.")
-
-if __name__ == "__main__":
-    User.start()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+app = Bot()
+app.run()
