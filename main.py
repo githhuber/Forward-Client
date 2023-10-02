@@ -13,6 +13,10 @@ from configs import Config
 from helpers.kanger import Kanger
 from helpers.forwarder import ForwardMessage
 
+if __name__ == '__main__':
+    app.run(port=8000)
+   
+
 RUN = {"isRunning": True}
 User = Client(
     name='pyrogram',
