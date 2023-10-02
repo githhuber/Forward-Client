@@ -90,6 +90,3 @@ async def main(client: Client, message: Message):
         return await message.edit("Removed Successfully!")
 
 PORT = os.environ.get("PORT", 8080)
-
-app = Bot()
-app.run()
