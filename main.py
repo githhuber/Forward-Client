@@ -22,8 +22,7 @@ User = Client(
     in_memory=True,
     session_string=Config.STRING_SESSION
 )
-app = Flask(__name__)
-PORT = int(os.environ.get("PORT", 8080))
+
 
 
 
@@ -128,7 +127,5 @@ async def main(client: Client, message: Message):
         try_forward = await ForwardMessage(client, message)
         if try_forward == 400:
             return
-    if __name__ == "__main__":
-        app.run(host="0.0.0.0", port=PORT)
-
+   
 User.run()
