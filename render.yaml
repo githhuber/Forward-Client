@@ -9,4 +9,4 @@ startCommand: python3.8 main.py
 # Set the environment variable for the port
 env:
   - key: PORT
-    value: "8080
+    value: "8080"
