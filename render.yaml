@@ -4,7 +4,7 @@
 buildCommand: python3.8 -m pip install -r requirements.txt
 
 # Specify the command to start your bot
-startCommand: python3.8 your_bot_script.py
+startCommand: python3.8 main.py
 
 # Set the environment variable for the port
 env:
